@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	// todo: Ask the user for their name.
+	//       Keep asking if an empty input is provided.
+
+	function isNumber(n) {
+	  return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+
+	do { 
+
+		var callMe = prompt('Please enter your name: ');
+		
+	} while (!callMe || isNumber(callMe));
+
+	// todo: Show an alert message that welcomes the user based on their input.
+
+	alert('Welcome ' + callMe + '!');
+
+	// todo: Ask the user if they like pizza.
+	//       Based on their answer tell show a creative alert message.
+
+	var lifeChoice = confirm(callMe + ', do you like pizza?');
+
+	var output = (lifeChoice) ? true : false ;
+
+	console.log(output + ' is a ridiculous answer.');
+
+	</script>
+</body>
+</html>
