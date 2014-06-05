@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Inline JS</title>
+    <title>Iterating Arrays</title>
 </head>
 <body>
     <script>
@@ -17,9 +17,25 @@
     // todo:
     // Create log statements that will print each of the names array elements individually.   
 
-    for (var i = names.length - 1; i >= 0; i--) {
+    for (var i = 0; i < names.length; i++) {
     	console.log(names[i]);
     };
+
+
+    // do the same in forEach
+    // declare and initialize array
+    var shapes = ['square','rectangle','circle','triangle'];
+
+    // loop through the array and log the values
+    shapes.forEach(function (element, index, shapes) {
+
+        // console.log(shapes);
+        // element is the shape name
+        // index is the iterator
+        // array is the shapes array itself
+
+        console.log('The shape at index ' + index + ' is: ' + element);
+    });
 
     </script>
 </body>
