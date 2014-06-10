@@ -19,12 +19,12 @@ console.log('The first name of person is: ' + person['first']);
 // todo:
 // Add a say hello method to the person object that alerts hello using the firstName and lastName properties.
 
-person.sayHello = function (person) {
-	alert('Hello ' + person['first'] + ' ' + person['last'] + '!');
+person.sayHello = function () {
+	alert('Hello ' + this.first + ' ' + this.last + '!');
 }
 
 // Say hello from the person object.
-person.sayHello(person);
+person.sayHello();
 
 </script>
 
