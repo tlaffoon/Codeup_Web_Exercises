@@ -11,23 +11,25 @@
 	// The book author should be an object with a firstName and lastName.
 	// Be creative and add at least 5 books to the array
 	// var books = [todo];
-	var arrayBooks = {
-	 	"Book1": {
-			"Book" : 1,
+	var arrayBooks = [ 
+		{
 			"Title" : "Whaley McGee's Adventures in Oceania",
-			"Author" : "W. McGee",
+			"Author" : { "firstName" : "Whaley",
+						  "lastName" : "McGee" },		
 		},
-		"Book2" : {
-			"Book" : 2,
+		{
+			
 			"Title" : "Sanguine Dreams",
-			"Author" : "Dr. Acula",
+			"Author" : { "firstName" : "Dr.",
+						  "lastName" : "Acula" },		
 		},
-		"Book3" : {
-			"Book" : 3,
-			"Title" : "Senoritas Muy Bonitas",
-			"Author" : "Ponce D. Rodriguez",
+		{
+			
+			"Title" : "Senoritas Mas Bonitas",
+			"Author" : { "firstName" : "Ponce D.",
+						  "lastName" : "Rodriguez" },
 		}
-	};
+	];
 
 	// log out the books array
 	console.log(arrayBooks);
@@ -35,10 +37,12 @@
 	// todo:
 	// Loop through the array of books using .forEach and print out the specified information about each one.
 	// start loop here
-	    console.log("Book #" + todo);
-	    console.log("Title: " + todo);
-	    console.log("Author: " + todo);
+	arrayBooks.forEach(function (element, index) { 
+	    console.log("Book #" + (index + 1));
+	    console.log("Title: " + element.Title);
+	    console.log("Author: " + element.Author.firstName + " " + element.Author.lastName);
 	    console.log("---");
+	});
 	// end loop here
 
 	</script>
