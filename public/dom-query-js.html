@@ -15,25 +15,47 @@
     <h2 id="sub-header">Hello Again.</h2>
     <p class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
+    <p><button id="btn1">Click to alter main header!</button></p>
+    <p><button id="btn2">Click to alter sub header!</button></p>
+    <p><button id="btn3">Click to alter table!</button></p>
+    <p><button id="btn4">Click to alter sub paragraph!</button></p>
+
+
     <script>
 
+    var alterMain = function (event) {
         // todo: get the main header element by id
         var mainHeader = document.getElementById('main-header');
 
         // todo: set inner html of mainHeader to "JavaScript is Cool"
         mainHeader.innerHTML = 'Javascript is Cool';
 
+        // remove event listener on click
+        btn1.removeEventListener('click', alterMain, false);
+        
+        // return success msg
+        return console.log('You altered the main header.');
+    }
+
+    var alterSub = function (event) {
         // todo: get the sub header element by id
         var subHeader = document.getElementById('sub-header');
 
         // todo: set the text color of subHeader to blue
         subHeader.style['color'] = 'blue';
 
+        // remove event listener on click
+        btn2.removeEventListener('click', alterSub, false);
+        
+        // return success msg
+        return console.log('You altered the sub header.');
+    }
+
+    var alterTable = function (event) {
         // todo: get all list items
         var listItems = document.getElementsByTagName('li');
 
         // todo: set text color on every other list item to grey
-
         for (var x = 0; x < listItems.length; x++) {
             if (x % 2) {
                 listItems[x].style['color'] = 'grey';
@@ -43,16 +65,54 @@
         // todo: set text color of li with dbid = 1 to blue
         listItems[0].style['color'] = 'blue';
 
+        // remove event listener on click
+        btn3.removeEventListener('click', alterTable, false);
+        
+        // return success msg
+        return console.log('You altered the table.');
+    }
+
+    var alterSubPar = function (event) {
         // todo: get all elements with class name sub-paragraph
         var subParagraph = document.getElementsByClassName('sub-paragraph');
 
-        // console.log(subParagraph[0]);
-
         // todo: change the text in the first sub paragraph to "Mission Accomplished!"
         subParagraph[0].innerText = 'Mission Accomplished!';
-        // console.log(subParagraph);
 
+        // remove event listener on click
+        btn4.removeEventListener('click', alterSubPar, false);
+        
+        // return success msg
+        return console.log('You altered the sub paragraph.');
+    }
 
+    // add event listener to btn1
+    var btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', alterMain, false);
+
+    // add event listener to btn2
+    var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', alterSub, false);
+
+    // add event listener to btn2
+    var btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', alterTable, false);
+
+    // add event listener to btn2
+    var btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', alterSubPar, false);
+
+/* 
+
+Open the HTML file named dom-query-js.html that you created in the last lesson.
+
+Add 4 buttons to the page. Attach click event listeners to each of the buttons and have the handers perform the modifications that were automatically taking place. For example, the first button should set inner html of mainHeader to "JavaScript is Cool".
+
+View the results in your browser to test for the expected output.
+
+Finally, save your work, commit the changes to your git repository, and push to github. 
+
+*/
     </script>
 
 </body>
