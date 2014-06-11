@@ -2,12 +2,6 @@
 <head>
 	<title>jQuery Exercises</title>
 	<script src="./js/jquery.js"></script>
-
-	<style type="text/css">
-	.codeup { 
-		color: blue;
-	}
-	</style>
 </head>
 <body>
 
@@ -22,21 +16,50 @@
 
 	</div>
 
-		<script type="text/javascript">
-	/* Use the file jquery_exercises.html for these exercises. Commit your changes to GitHub.
+	<button id="btn1"> Clicker! </button>
 
-	Remove your custom jQuery code from previous exercises.
-	Update your code so that at least 3 different elements have the same class named codeup.
-	Using jQuery, create a border around all elements with the class codeup that is 1 pixel wide and red.
-	Remove the class from one of the elements. Refresh and test that the border has been removed.
-	Give another element an id of codeup. Does this element get a border now? */
+	<script type="text/javascript">
+	/* Remove your custom jQuery code from previous exercises.
+	Add jQuery code that will change the background color of a h1 element when clicked.
+	Make all paragraphs have a font size of 18px when they are double clicked.
+	Set all li text color to red when the mouse is hovering, reset to white when it is not. */
 
-		$(document).ready(function() {
-		    console.log('The DOM has finished loading!');
-		    $('.codeup').css('border' , '1px solid red');
-		    $('#main-heading').addClass('codeup');
-		});
-		</script>
+
+	// on single click change bg color
+	$('#btn1').click(function() {
+
+		$('#main-heading').css('background-color' , 'blue');
+
+	});
+
+	// on double click revert
+	$('#btn1').dblclick(function() {
+
+		$('#main-heading').css('background-color' , 'white');
+
+	});
+
+
+	$('p').css('cursor','pointer').dblclick(function() {
+
+		$(this).css('background-color', 'blue');
+
+	});
+
+
+	$('li').hover(
+
+		function() {
+			$(this).css('color', 'red')
+		},
+
+		function() {
+			$(this).css('color', 'black')
+		}
+	);
+
+
+	</script>
 
 </body>
 </html>
