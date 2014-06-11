@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>jQuery Exercises</title>
+	<script src="./js/jquery.js"></script>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+/* Use the file jquery_exercises.html for these exercises. Commit your changes to GitHub.
+	Create content in your HTML file using at least the following elements: h1, p, ul, li, div.
+	Add several attributes to your elements; you will need both id and class attributes.
+	Use jQuery to select an element by the id. Alert the contents of the element.
+	Update the jQuery code to select and alert a different id.
+	Use the same id on 2 elements. How does this change the jQuery selection?
+	Remove the duplicate id. Each id should be unique on that page. */
+
+	$(document).ready(function() {
+	    console.log('The DOM has finished loading!');
+
+	    var contents = $('#main-heading');
+	    console.log(contents);
+	    console.log(contents.html());
+	    contents = $('#main-heading').html();
+	    console.log(contents);
+
+	    var testing = $('.container');
+	    console.log(testing.html());
+
+	});
+
+	</script>
+
+	<div class="container">
+		<h1 id="main-heading">Heading 1</h1>
+		<p class="content-par"> This is a paragraph. </p>
+			<ul>
+				<li class="item">Item 1</li>
+				<li class="item">Item 2</li>
+				<li class="item">Item 3</li>
+			</ul>
+
+	</div>
+
+</body>
+</html>
