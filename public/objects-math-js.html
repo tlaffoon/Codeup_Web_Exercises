@@ -18,11 +18,11 @@
 	    logInfo: function (round) {
 	        // todo: complete this method. if round is true, round the result to the nearest integer.
 	        if (round == true) {
-	        	area = Math.round(circle.getArea(circle));
+	        	area = Math.round(this.getArea(circle));
 	    	}
 
 	    	else	{
-	    		area = circle.getArea(circle);
+	    		area = this.getArea(circle);
 	    	}
 
 	    	return console.log('Area of a circle with radius: ' + this.radius + ', is: ' + area);
