@@ -109,7 +109,7 @@ $('document').ready(function() {
 
 	// Add click toggle for individual dt/dd pairs
 		$('dt').on('click', function() {
-			$(this).next('dd').fadeToggle();
+			$(this).next('dd').slideToggle();
 		});
 
 	// Add css to first li in each ul
@@ -119,7 +119,7 @@ $('document').ready(function() {
 
 	// Hides below ul when above h3 clicked.
 	$('h3').on('click', function() {
-		$(this).next('ul').fadeToggle();
+		$(this).next('ul').slideToggle();
 	});
 
 });
