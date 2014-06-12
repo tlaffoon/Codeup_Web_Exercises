@@ -11,6 +11,35 @@
 </head>
 <body>
 
+
+<div class="container">
+	<h1>Parks List</h1>
+			<h3>Arches</h3>
+				<ul>
+		    		<li>Fact 1</li>
+		    		<li>Fact 2</li>
+		    		<li>Fact 3</li>
+		    		<li>Fact 4</li>
+				</ul>
+	
+			<h3>Badlands</h3>
+				<ul>
+			    	<li>Fact 1</li>
+			    	<li>Fact 2</li>
+			    	<li>Fact 3</li>
+			    	<li>Fact 4</li>
+				</ul>
+				
+			<h3>Carlsbad</h3>
+				<ul>
+			    	<li>Fact 1</li>
+			    	<li>Fact 2</li>
+			    	<li>Fact 3</li>
+			    	<li>Fact 4</li>
+				</ul>
+</div>
+
+
 <div class="container">
 
 	<button id="btn1">Click here to hide answers!</button>
@@ -65,16 +94,25 @@
 </div>
 
 <script type="text/javascript">
-// Create a new file named jquery_faq.html. Commit all changes to GitHub.
-// In a HTML structure, create a definition list containing 10 FAQs about national parks.
-// Add a class to all dd elements named invisible.
-// Create CSS that sets elements with the invisible class to display: none.
-// Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
+// Create jQuery code that makes the first li element in each ul have font-weight: bold.
+// Create jQuery code that adds the invisible class on the parent ul of any li that is clicked.
+$('document').ready(function() {
 
-$('#btn1').on('click', function() {
-	$('dd').toggleClass('invisible');
+	// Button which hides dd tags
+	$('#btn1').on('click', function() {
+		$('dd').toggleClass('invisible');
+	});
+
+	// Add css to first li in each ul
+	$('ul').each(function() {
+		$(this).children('li:first').css('font-weight', 'bold');
+	});
+
+	// Add invisible class to ul when child li clicked.
+	$('li').on('click', function() {
+		$(this).parent('ul').addClass('invisible');
+	});
 });
-
 
 </script>
 
