@@ -10,41 +10,22 @@
 
     <script>
 
-        var timer = null;
+    function save() {
+        console.log('Saved!');
+    }
 
-        function save() {
-            console.log('Saved!');
-        }
+    function autosave() {
+        clearInterval(timer);
+        timer = setTimeout(function()   {
+            save();
+        }, 5000);
+    }
 
-        function autosave() {          
-
-            // Update your HTML file named window-js.html within the ~/vagrant-lamp/sites/codeup.dev/public folder on your Mac.
-
-            // Refactor the code for autosave to use jQuery where applicable. Use the jQuery keyboard event(s) instad of native javascript.
-
-            // Test the results in your browser, save your work when complete.
-
-            // console.log('autosaved.');
-
-            // clearInterval(timer);
-            // timer = setTimeout(function()   {
-            //     save();
-            // }, 5000);
-        }
-
-        // don't modify the line below
-        // this causes the autosave function to be called whenever
-        // a key up event occurs in the textarea
-        // we will learn about events in the DOM lessons
-        // var textarea = document.getElementById('important');
-        // textarea.addEventListener('keyup', autosave, false);
+    var timer = null;
 
         $('#txtinp').on('keyup', function () {
 
-            clearInterval(timer);
-            timer = setTimeout(function()   {
-                save();
-            }, 5000);
+            autosave();
 
         });
 
