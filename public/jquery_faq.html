@@ -4,13 +4,13 @@
 	<script src="./js/jquery.js"></script>
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
 	<style type="text/css">
-	.invisible {
-		display: none;
-	}
 	.dt-hover {
 		cursor: pointer;
 	}
 	.li-hover {
+		cursor: pointer;
+	}
+	h3 {
 		cursor: pointer;
 	}
 	</style>
@@ -47,11 +47,6 @@
 
 
 <div class="container">
-
-
-	<p>	<button id="btn1">Click to hide all answers.</button> </p>
-
-
 	<dl>
 
 	<dt>What government agency oversees the National Park Service?</dt>
@@ -102,25 +97,19 @@
 </div>
 
 <script type="text/javascript">
-
-// Update the code that uses the invisible class to hide and show dd elements to instead use the .toggle() method.
-// Update the li clicks adding invisible to the parent ul to instead use .hide().
+// Open the file named jquery_faq.html for editing. Commit all changes to GitHub.
+// Update toggle code for dd elements to use fading effect.
+// Update the h3 and ul lists to work like the example above. Clicking the h3 should show or hide the associated ul list items. Use fading effects for hiding and showing the list items. Discard code that hid list when li was clicked.
 
 $('document').ready(function() {
 
 	// Add pointer classes
 	$('li').addClass('li-hover');
 	$('dt').addClass('dt-hover');
-	$('dd').addClass('invisible');
-
-	// Toggle button for dd tags
-	$('#btn1').on('click', function() {
-		$('dd').addClass('invisible');
-	});
 
 	// Add click toggle for individual dt/dd pairs
 		$('dt').on('click', function() {
-			$(this).next('dd').toggleClass('invisible');
+			$(this).next('dd').fadeToggle();
 		});
 
 	// Add css to first li in each ul
@@ -128,9 +117,9 @@ $('document').ready(function() {
 		$(this).children('li:first').css('font-weight', 'bold');
 	});
 
-	// Hides parent ul when child li clicked.
-	$('li').on('click', function() {
-		$(this).parent('ul').hide();
+	// Hides below ul when above h3 clicked.
+	$('h3').on('click', function() {
+		$(this).next('ul').fadeToggle();
 	});
 
 });
