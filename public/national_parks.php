@@ -24,15 +24,15 @@ $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if (empty($_GET)) {
 	$query = ('SELECT * FROM national_parks LIMIT 4;');
-	$currentPage = 0;
+	$pageID = 0;
 }
 
 if (!empty($_GET)) {
 	//var_dump($_GET);
 	$query = ("SELECT * FROM national_parks LIMIT 4 OFFSET " . ($_GET['page'] * 4) . ";");
 	//echo "$query";
-	$currentPage = $_GET['page'];
-	//echo "$currentPage";
+	$pageID = $_GET['page'];
+	//echo "$pageID";
 }
 
 
@@ -44,6 +44,11 @@ $stmt = $dbc->query($query);
 <html>
 <head>
 	<title>National Parks</title>
+	<style type="text/css">
+	.nav {
+		width: 400px;
+	}
+	</style>
 </head>
 <body>
   <table>
@@ -61,11 +66,17 @@ $stmt = $dbc->query($query);
 			echo "<td>{$row['date_established']}</td>";
 			echo "<td>{$row['area_in_acres']}</td></tr>";
 		}?>
-	
-	<tr>
-		<td> <a href="?page=<?= ($currentPage - 1) ?>">Previous</a> </td> <td><a href="?page=<?= ($currentPage + 1) ?>">Next</a></td>
-	</tr>
-
   </table>
+
+  <div class="nav">
+
+  <? if ($pageID != 0) : ?>
+  	<a style="float: left" href="?page=<?= ($pageID - 1) ?>">Previous</a>
+  <? endif ?>
+  
+  <a style="float: right" href="?page=<?= ($pageID + 1) ?>">Next</a>
+
+  </div>
+
 </body>
 </html>
