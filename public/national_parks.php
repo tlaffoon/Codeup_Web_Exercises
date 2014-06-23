@@ -18,19 +18,26 @@ $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 
-$stmt = $dbc->query('SELECT count(*) FROM national_parks;');
+//$stmt = $dbc->query('SELECT count(*) FROM national_parks;');
+//$numParks = $stmt->fetchColumn();
+//echo 'There are ' . $numParks . ' parks in our database.' . PHP_EOL;
 
-$numParks = $stmt->fetchColumn();
+if (empty($_GET)) {
+	$query = ('SELECT * FROM national_parks LIMIT 4;');
+	$currentPage = 0;
+}
 
-echo 'There are ' . $numParks . ' parks in our database.' . PHP_EOL;
+if (!empty($_GET)) {
+	//var_dump($_GET);
+	$query = ("SELECT * FROM national_parks LIMIT 4 OFFSET " . ($_GET['page'] * 4) . ";");
+	//echo "$query";
+	$currentPage = $_GET['page'];
+	//echo "$currentPage";
+}
 
 
-$stmt2 = $dbc->query('SELECT * FROM national_parks;');
 
-// while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-//     // print_r($row);
-// 	echo "<p>{$row['name']} -- {$row['location']} -- {$row['date_established']} -- {$row['area_in_acres']}</p>";
-// }
+$stmt = $dbc->query($query);
 
 ?>
 
@@ -48,13 +55,17 @@ $stmt2 = $dbc->query('SELECT * FROM national_parks;');
 	</tr>
 
 	<tr>
-		<? while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+		<? while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			echo "<td>{$row['name']}</td>";
 			echo "<td>{$row['location']}</td>";
 			echo "<td>{$row['date_established']}</td>";
 			echo "<td>{$row['area_in_acres']}</td></tr>";
 		}?>
 	
+	<tr>
+		<td> <a href="?page=<?= ($currentPage - 1) ?>">Previous</a> </td> <td><a href="?page=<?= ($currentPage + 1) ?>">Next</a></td>
+	</tr>
+
   </table>
 </body>
 </html>
